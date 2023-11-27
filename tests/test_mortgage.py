@@ -44,6 +44,19 @@ class MortgageTests(TestCase):
         expected = Mortgage(1,MortgageRate.FIXED_1,MortgageFrequency.BI_WEEKLY,5)
         expected.LoanAmount = 1
         self.assertEqual(expected.LoanAmount,1)
+        
+    def test_freq_true(self):
+        expected = Mortgage(1,MortgageRate.FIXED_1,MortgageFrequency.BI_WEEKLY,5)
+        expected.Frequency = MortgageFrequency.BI_WEEKLY
+        self.assertEqual(expected.Frequency,MortgageFrequency.BI_WEEKLY)
+    
+    def test_freq_false(self):
+        expected = Mortgage(1,MortgageRate.FIXED_1,MortgageFrequency.BI_WEEKLY,5)
+        with self.assertRaises(ValueError):
+            expected.Frequency = ""
+        
+
+
 
 if __name__ == '__main__':
     TestCase.main()
