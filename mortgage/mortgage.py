@@ -58,6 +58,17 @@ class Mortgage:
         if not isinstance(rate, MortgageFrequency):
             raise ValueError("Frequency provided is invalid")
         self._Frequency = rate
+        
+    @property
+    def Amortization(self):
+        return self._Amortization
+    
+    @Amortization.setter
+    def Amortization(self,value):
+        if value not in VALID_AMORTIZATION:
+            raise Exception("Amorization provided is invalid")
+        self._Amortization = value
+
 
         
             
