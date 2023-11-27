@@ -18,18 +18,18 @@ class MortgageRate(Enum):
     """
     Mortgage Rate Options
     """
-    FIXED_5: 0.0500
-    FIXED_3: 0.0579
-    FIXED_1: 0.0589
-    VARIABLE_5: 0.0650
-    VARIABLE_3: 0.0660
-    VARIABLE_1: 0.0679
+    FIXED_5 = 0.0500
+    FIXED_3 = 0.0579
+    FIXED_1 = 0.0589
+    VARIABLE_5 = 0.0650
+    VARIABLE_3 = 0.0660
+    VARIABLE_1 = 0.0679
     
 class MortgageFrequency(Enum):
     """
     Payment Frequency Options
 
     """
-    MONTHLY: 12
-    BI_WEEKLY: 26
-    WEEKLY: 52
+    MONTHLY = 12
+    BI_WEEKLY = 26
+    WEEKLY = 52
