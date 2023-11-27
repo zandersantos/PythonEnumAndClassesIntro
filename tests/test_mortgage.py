@@ -64,6 +64,15 @@ class MortgageTests(TestCase):
         expected = Mortgage(1,MortgageRate.FIXED_1,MortgageFrequency.BI_WEEKLY,5)
         with self.assertRaises(Exception):
             expected.Amortization = 1
+    
+    def test_init(self):
+        expected = Mortgage(1,MortgageRate.FIXED_1,MortgageFrequency.BI_WEEKLY,5)
+
+        self.assertEqual(expected.LoanAmount,1)
+        self.assertEqual(expected.Rate,MortgageRate.FIXED_1)
+        self.assertEqual(expected.Frequency,MortgageFrequency.BI_WEEKLY)
+        self.assertEqual(expected.Amortization,5)
+
 
         
 
