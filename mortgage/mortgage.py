@@ -68,6 +68,16 @@ class Mortgage:
         if value not in VALID_AMORTIZATION:
             raise Exception("Amorization provided is invalid")
         self._Amortization = value
+        
+    def calculate_payment(self) -> float:
+        
+        principal_loan = self.LoanAmount
+        interest_rate:float = self.Rate.value / self.Frequency.value
+        number_of_payments = self.Amortization * self.Frequency.value
+        payment = (principal_loan * (interest_rate * (1 + interest_rate)**number_of_payments)/((1 + interest_rate)**number_of_payments - 1))        
+        return round(payment,2)
+
+
 
 
         
