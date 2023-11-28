@@ -92,6 +92,38 @@ class MortgageTests(TestCase):
         expected = Mortgage(10000,MortgageRate.FIXED_5,MortgageFrequency.WEEKLY,20)
         actual_payment = expected.calculate_payment()
         self.assertAlmostEqual(actual_payment,payment_result,places=2)
+        
+    def test_str_monthly(self):
+        expected = Mortgage(682912.43, MortgageRate.FIXED_1, MortgageFrequency.MONTHLY, 30)
+        expected_str = (
+            "Mortgage Amount: $682,912.43\n"
+            "Rate: 5.89%\n"
+            "Amortization: 30\n"
+            "Frequency: Monthly -- Calculated Payment: $4,046.23"
+        )
+        self.assertEqual(str(expected), expected_str)
+        
+    def test_str_biweekly(self):
+        expected = Mortgage(2, MortgageRate.FIXED_3, MortgageFrequency.BI_WEEKLY, 5)
+        expected_str = (
+            "Mortgage Amount: $2.00\n"
+            "Rate: 5.79%\n"
+            "Amortization: 5\n"
+            "Frequency: Bi_weekly -- Calculated Payment: $0.02"
+        )
+        self.assertEqual(str(expected), expected_str)
+
+    def test_str_weekly(self):
+        expected = Mortgage(10000, MortgageRate.FIXED_5, MortgageFrequency.WEEKLY, 20)
+        expected_str = (
+            "Mortgage Amount: $10,000.00\n"
+            "Rate: 5.00%\n"
+            "Amortization: 20\n"
+            "Frequency: Weekly -- Calculated Payment: $15.22"
+        )
+        self.assertEqual(str(expected), expected_str)
+
+        
 
         
 #(principal_loan * (interest_rate * (1 + interest_rate)**number_of_payments)/((1+interest_rate)**number_of_payments - 1))

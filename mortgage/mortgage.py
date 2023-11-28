@@ -76,6 +76,18 @@ class Mortgage:
         number_of_payments = self.Amortization * self.Frequency.value
         payment = (principal_loan * (interest_rate * (1 + interest_rate)**number_of_payments)/((1 + interest_rate)**number_of_payments - 1))        
         return round(payment,2)
+    
+    def __str__(self):
+        mortgage_amount_format_ = "${:,.2f}".format(self.LoanAmount)
+        rate_format = "{:.2%}".format(self.Rate.value)
+        calculated_payment_format = "${:,.2f}".format(self.calculate_payment())
+
+        return(
+            f"Mortgage Amount: {mortgage_amount_format_}\n"
+            f"Rate: {rate_format}\n"
+            f"Amortization: {self.Amortization}\n"
+            f"Frequency: {self.Frequency.name.capitalize()} -- Calculated Payment: {calculated_payment_format}")
+        
 
 
 
