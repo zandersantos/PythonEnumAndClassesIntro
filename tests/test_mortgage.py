@@ -122,7 +122,11 @@ class MortgageTests(TestCase):
             "Frequency: Weekly -- Calculated Payment: $15.22"
         )
         self.assertEqual(str(expected), expected_str)
-
+        
+    def test_repr(self): 
+        expected = Mortgage(682912.43, MortgageRate.FIXED_1, MortgageFrequency.MONTHLY, 30)
+        expected_repr = "[682912.43, 0.0589, 30, 12]"
+        self.assertEqual(repr(expected),expected_repr)
         
 
         
