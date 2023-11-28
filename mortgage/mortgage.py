@@ -48,16 +48,26 @@ class Mortgage:
             
         elif amount <= 0:
             raise ValueError("Loan must be positive")
+
+    @property
+    def Rate(self):
+        return self._Rate
+    
+    @Rate.setter
+    def Rate(self,rate):
+        if not isinstance(rate,MortgageRate):
+            raise ValueError("Rate provided is invalid")
+        self._Rate = rate
         
     @property
     def Frequency(self):
         return self._Frequency
     
     @Frequency.setter
-    def Frequency(self,rate):
-        if not isinstance(rate, MortgageFrequency):
+    def Frequency(self,freq):
+        if not isinstance(freq, MortgageFrequency):
             raise ValueError("Frequency provided is invalid")
-        self._Frequency = rate
+        self._Frequency = freq
         
     @property
     def Amortization(self):
